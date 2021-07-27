@@ -10,7 +10,7 @@ const SearchInput = props => {
                 <Icon name="search" color='#bebebe' style={{ paddingHorizontal: 15 }} />
                 <TextInput
                     style={styles.input}
-                    placeholder='Search'
+                    placeholder='Search for articles'
                     onChangeText={props.onChangeText}
                 />
             </View>
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     },
     input: {
         padding: 5,
-        width: '90%'
+        width: '90%',
+        height: 40
     }
 });
 

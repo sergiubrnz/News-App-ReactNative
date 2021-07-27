@@ -1,16 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import SearchInput from '../components/SearchInput';
+import NewsItem from '../components/NewsItem';
 
 const Overview = props => {
 
-    return <View style={styles.content}>
-        <View style={styles.input}>
-            <SearchInput onChangeText={()=>{}}/>
+    return (
+        <View style={styles.content}>
+            <View style={styles.input}>
+                <SearchInput onChangeText={() => { }} />
+            </View>
+            <View style={{paddingTop: 20}}>
+            <NewsItem />
+            </View>
         </View>
-        <Text style={{ height: '70%' }}>Overview screen</Text>
-    </View>
-
+    )
 };
 
 
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
-        width:'100%'
+        width: '100%'
     }
 });
 

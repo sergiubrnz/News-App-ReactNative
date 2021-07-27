@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 import Overview from '../screens/Overview';
 import SavedNews from '../screens/SavedNews';
@@ -25,11 +25,11 @@ const ToolBar = () => {
                 component={Overview}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={[styles.imageview,{backgroundColor: focused?'#29b6f6':'white'}]} >
+                        <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
                             <Image
                                 source={require('../images/home.png')}
                                 resizeMode='contain'
-                                style={styles.image}
+                                style={[styles.image, { tintColor: focused ? '#3480cc' : 'black' }]}
                             />
                         </View>
                     )
@@ -40,11 +40,11 @@ const ToolBar = () => {
                 component={SavedNews}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={[styles.imageview,{backgroundColor: focused?'#29b6f6':'white'}]} >
+                        <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
                             <Image
                                 source={require('../images/group.png')}
                                 resizeMode='contain'
-                                style={styles.image}
+                                style={[styles.image, { tintColor: focused ? '#3480cc' : 'black' }]}
                             />
                         </View>
                     )
@@ -55,11 +55,11 @@ const ToolBar = () => {
                 component={Settings}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={[styles.imageview,{backgroundColor: focused?'#29b6f6':'white'}]} >
+                        <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
                             <Image
                                 source={require('../images/settings.png')}
                                 resizeMode='contain'
-                                style={styles.image}
+                                style={[styles.image, { tintColor: focused ? '#3480cc' : 'black' }]}
                             />
                         </View>
                     )
@@ -77,8 +77,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: '100%',
-        tintColor:'black'
+        height: '100%'
     }
 });
 
