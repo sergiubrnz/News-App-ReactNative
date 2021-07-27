@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, View } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import Overview from '../screens/Overview';
 import SavedNews from '../screens/SavedNews';
@@ -25,8 +25,12 @@ const ToolBar = () => {
                 component={Overview}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View>
-                            <Image source={require('../images/home.png')} />
+                        <View style={[styles.imageview,{backgroundColor: focused?'#29b6f6':'white'}]} >
+                            <Image
+                                source={require('../images/home.png')}
+                                resizeMode='contain'
+                                style={styles.image}
+                            />
                         </View>
                     )
                 }}
@@ -36,8 +40,12 @@ const ToolBar = () => {
                 component={SavedNews}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View>
-                            <Image source={require('../images/group.png')} />
+                        <View style={[styles.imageview,{backgroundColor: focused?'#29b6f6':'white'}]} >
+                            <Image
+                                source={require('../images/group.png')}
+                                resizeMode='contain'
+                                style={styles.image}
+                            />
                         </View>
                     )
                 }}
@@ -47,8 +55,12 @@ const ToolBar = () => {
                 component={Settings}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View>
-                            <Image source={require('../images/settings.png')} />
+                        <View style={[styles.imageview,{backgroundColor: focused?'#29b6f6':'white'}]} >
+                            <Image
+                                source={require('../images/settings.png')}
+                                resizeMode='contain'
+                                style={styles.image}
+                            />
                         </View>
                     )
                 }}
@@ -56,5 +68,18 @@ const ToolBar = () => {
         </Bar.Navigator>
     )
 }
+
+const styles = StyleSheet.create({
+    imageview: {
+        borderRadius: 17.5,
+        width: 35,
+        height: 35
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+        tintColor:'black'
+    }
+});
 
 export default ToolBar;
