@@ -1,17 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import Overview from './screens/Overview';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import ToolBar from './navigation/toolBar';
 
 const App = () => {
-
   return (
-    <View>
-      <Overview />
-    </View>
+    <NavigationContainer>
+      <ToolBar />
+    </NavigationContainer>
+
   );
 };
 
-const styles = StyleSheet.create({
-});
 
 export default App;
