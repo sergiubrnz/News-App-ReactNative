@@ -11,7 +11,7 @@ const Overview = props => {
                 <SearchInput onChangeText={() => { }} />
             </View>
             <View style={{paddingTop: 20}}>
-            <NewsItem />
+            <NewsItem onSelect={()=>navigation.navigate('NewsDetails1')}/>
             </View>
         </View>
     )

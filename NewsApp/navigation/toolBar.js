@@ -2,10 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet, View } from 'react-native';
 
-import Overview from '../screens/Overview';
-import SavedNews from '../screens/SavedNews';
 import Settings from '../screens/Settings';
-
+import { OverviewStack, FavNewsStack } from './NewsNavigator';
 const Bar = createBottomTabNavigator();
 
 const ToolBar = () => {
@@ -22,7 +20,7 @@ const ToolBar = () => {
         >
             <Bar.Screen
                 name="Home"
-                component={Overview}
+                component={OverviewStack}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
@@ -37,7 +35,7 @@ const ToolBar = () => {
             />
             <Bar.Screen
                 name="Saved News"
-                component={SavedNews}
+                component={FavNewsStack}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
