@@ -10,12 +10,17 @@ const Overview = props => {
             <View style={styles.input}>
                 <SearchInput onChangeText={() => { }} />
             </View>
-            <View style={{paddingTop: 20}}>
-            <NewsItem onSelect={()=>navigation.navigate('NewsDetails1')}/>
+            <View style={{ paddingTop: 20 }}>
+                <NewsItem
+                    onSelect={() => props.navigation.navigate(
+                        'NewsDetails1'
+                    )}
+                />
             </View>
         </View>
     )
 };
+
 
 
 const styles = StyleSheet.create({
