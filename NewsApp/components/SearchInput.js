@@ -12,7 +12,11 @@ const SearchInput = props => {
                     style={styles.input}
                     placeholder='Search for articles'
                     placeholderTextColor='#BEBEBE'
-                    onChangeText={props.onChangeText}
+                    onChangeText={(text) => {
+                        if (text.length > 3) {
+                            props.onTextChange
+                        }
+                    }}
                 />
             </View>
         </View>
@@ -38,7 +42,7 @@ const styles = StyleSheet.create({
         padding: 5,
         width: '90%',
         height: 40,
-        color:'#363636'
+        color: '#363636'
     }
 });
 

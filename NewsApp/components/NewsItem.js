@@ -8,10 +8,10 @@ const NewsItem = props => {
             onPress={props.onSelect}
             style={styles.news}
         >
-            <Image style={styles.image} source={{ uri: 'https://cdn.shortpixel.ai/spai/w_1003+q_glossy+ret_img+to_webp/https://balkangreenenergynews.com/wp-content/uploads/2020/06/Greece-introduces-EUR-100-million-worth-subsidies-for-electric-vehicles.jpg' }} />
+            <Image style={styles.image} source={{ uri: props.image }} />
             <View style={styles.textSet}>
-                <Text style={styles.title}>Before you buy an electric car: 21 Things You Should Know</Text>
-                <Text style={styles.author}>Arnold Gray</Text>
+                <Text style={styles.title}>{props.title}</Text>
+                <Text style={styles.author}>{props.author}</Text>
             </View>
         </TouchableOpacity>
     )

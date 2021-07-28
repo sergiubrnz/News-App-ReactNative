@@ -6,8 +6,12 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 import colorReducer from './store/reducers/colors';
+import newsReducer from './store/reducers/news';
 
-const store = createStore(combineReducers({ colorReducer }), applyMiddleware(thunk));
+const store = createStore(combineReducers({
+  colorReducer,
+  newsReducer
+}), applyMiddleware(thunk));
 
 
 const App = () => {
