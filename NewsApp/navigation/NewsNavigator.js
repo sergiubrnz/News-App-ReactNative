@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Overview from '../screens/Overview';
 import NewsDetails from '../screens/NewsDetails';
 import SavedNews from '../screens/SavedNews';
+import Settings from '../screens/Settings';
 
 const Stack = createStackNavigator();
 
@@ -30,7 +31,7 @@ const FavNewsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-            options={{ headerShown: false }}А
+                options={{ headerShown: false }} А
                 name="Saved News"
                 component={SavedNews}
             />
@@ -43,4 +44,18 @@ const FavNewsStack = () => {
 }
 
 export { FavNewsStack };
+
+const SettingsStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                options={{ headerShown: true, headerTitleAlign: 'center' }}
+                name="Settings"
+                component={Settings}
+            />
+        </Stack.Navigator>
+    )
+}
+
+export { SettingsStack };
 
