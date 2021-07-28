@@ -31,8 +31,8 @@ const FavNewsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: false }} А
-                name="Saved News"
+                options={{ headerShown: true }} 
+                name="Saved Articles"
                 component={SavedNews}
             />
             <Stack.Screen

@@ -31,7 +31,7 @@ const ToolBar = () => {
                                 <Image
                                     source={require('../images/home.png')}
                                     resizeMode='contain'
-                                    style={styles.image}
+                                    style={[styles.image, { tintColor: focused ? theme.SECONDARY_COLOR : 'black' }]}
                                 />
                             </View>
                         )
@@ -46,7 +46,7 @@ const ToolBar = () => {
                                 <Image
                                     source={require('../images/group.png')}
                                     resizeMode='contain'
-                                    style={styles.image}
+                                    style={[styles.image, { tintColor: focused ? theme.SECONDARY_COLOR : 'black' }]}
                                 />
                             </View>
                         )
@@ -61,7 +61,7 @@ const ToolBar = () => {
                                 <Image
                                     source={require('../images/settings.png')}
                                     resizeMode='contain'
-                                    style={styles.image}
+                                    style={[styles.image, { tintColor: focused ? theme.SECONDARY_COLOR : 'black' }]}
                                 />
                             </View>
                         )
@@ -80,8 +80,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: '100%',
-        tintColor:'black'
+        height: '100%'
     }
 });
 
