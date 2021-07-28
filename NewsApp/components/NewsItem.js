@@ -39,11 +39,12 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize: 16,
-        marginBottom: 5
+        marginBottom: 5,
+        color: '#222222'
     },
     author: {
         fontSize: 15,
-        color: 'gray'
+        color: '#777777'
     }
 });
 

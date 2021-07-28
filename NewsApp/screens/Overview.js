@@ -10,10 +10,10 @@ const Overview = props => {
             <View style={styles.input}>
                 <SearchInput onChangeText={() => { }} />
             </View>
-            <View style={{ paddingTop: 20 }}>
+            <View style={{ padding: 15 }}>
                 <NewsItem
                     onSelect={() => props.navigation.navigate(
-                        'NewsDetails1'
+                        'Article Details'
                     )}
                 />
             </View>

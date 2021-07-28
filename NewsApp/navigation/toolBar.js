@@ -23,7 +23,7 @@ const ToolBar = () => {
                 component={OverviewStack}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
+                        <View style={[styles.imageview, { backgroundColor: focused ? 'rgba(14,104,195,0.25)' : 'white' }]} >
                             <Image
                                 source={require('../images/home.png')}
                                 resizeMode='contain'
@@ -38,7 +38,7 @@ const ToolBar = () => {
                 component={FavNewsStack}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
+                        <View style={[styles.imageview, { backgroundColor: focused ? 'rgba(14,104,195,0.25)' : 'white' }]} >
                             <Image
                                 source={require('../images/group.png')}
                                 resizeMode='contain'
@@ -53,7 +53,7 @@ const ToolBar = () => {
                 component={Settings}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={[styles.imageview, { backgroundColor: focused ? '#c7dcf1' : 'white' }]} >
+                        <View style={[styles.imageview, { backgroundColor: focused ? 'rgba(14,104,195,0.25)' : 'white' }]} >
                             <Image
                                 source={require('../images/settings.png')}
                                 resizeMode='contain'

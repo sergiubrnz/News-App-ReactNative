@@ -12,33 +12,35 @@ const OverviewStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
+                options={{ headerShown: false }}
                 name="News Overview"
                 component={Overview}
             />
             <Stack.Screen
-                name="NewsDetails1"
+                name="Article Details"
                 component={NewsDetails}
             />
         </Stack.Navigator>
     )
 }
 
-export {OverviewStack};
+export { OverviewStack };
 
 const FavNewsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
+            options={{ headerShown: false }}А
                 name="Saved News"
                 component={SavedNews}
             />
             <Stack.Screen
-                name="NewsDetails2"
+                name="Article Details"
                 component={NewsDetails}
             />
         </Stack.Navigator>
     )
 }
 
-export {FavNewsStack};
+export { FavNewsStack };
 

@@ -11,6 +11,7 @@ const SearchInput = props => {
                 <TextInput
                     style={styles.input}
                     placeholder='Search for articles'
+                    placeholderTextColor='#BEBEBE'
                     onChangeText={props.onChangeText}
                 />
             </View>
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
         height: 40
     },
     component: {
-        borderColor: '#888',
+        borderColor: '#BEBEBE',
         borderWidth: 1,
         borderRadius: 7,
         flexDirection: 'row',
@@ -36,7 +37,8 @@ const styles = StyleSheet.create({
     input: {
         padding: 5,
         width: '90%',
-        height: 40
+        height: 40,
+        color:'#363636'
     }
 });
 
