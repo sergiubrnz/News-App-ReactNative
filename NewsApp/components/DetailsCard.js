@@ -5,13 +5,13 @@ const DetailsCard = props => {
     return (
         <View style={styles.screen}>
             <View style={styles.imageContainer}>
-                <Image style={styles.image} source={{ uri: 'https://cdn.shortpixel.ai/spai/w_1003+q_glossy+ret_img+to_webp/https://balkangreenenergynews.com/wp-content/uploads/2020/06/Greece-introduces-EUR-100-million-worth-subsidies-for-electric-vehicles.jpg' }} />
+                <Image style={styles.image} source={{ uri: props.image }} />
             </View>
             <View style={styles.textContainer}>
                 <Text numberOfLines={2} style={styles.title}>{props.title}</Text>
-                <Text style={styles.author}>Arnold Gray</Text>
+                <Text style={styles.author}>{props.author}</Text>
                 <View style={styles.line} />
-                <Text style={styles.content}>content dahdasgdya igdsiyad  sakhdius ahdi usahd iahdsi adhla hdlisud aushuh aldhah</Text>
+                <Text style={styles.content}>{props.content}</Text>
             </View>
         </View>
     )
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#DEDEDE',
         paddingVertical: 5,
         width: '30%',
-        alignSelf:'center'
+        alignSelf: 'center'
     }
 });
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { View, StyleSheet, Text, FlatList, ActivityIndicator, Button } from 'react-native';
 import SearchInput from '../components/SearchInput';
 import NewsItem from '../components/NewsItem';
@@ -57,7 +57,7 @@ const Overview = props => {
                                     author={itemData.item.author}
                                     onSelect={() => props.navigation.navigate(
                                         'Article Details', {
-                                        title: itemData.item.title
+                                        newsId: itemData.item.id
                                     }
                                     )}
                                 />
