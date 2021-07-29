@@ -10,8 +10,8 @@ const NewsItem = props => {
         >
             <Image style={styles.image} source={{ uri: props.image }} />
             <View style={styles.textSet}>
-                <Text style={styles.title}>{props.title}</Text>
-                <Text style={styles.author}>{props.author}</Text>
+                <Text style={styles.title} numberOfLines={2}>{props.title}</Text>
+                <Text style={styles.author} numberOfLines={1}>{props.author}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -21,20 +21,23 @@ const styles = StyleSheet.create({
     news: {
         backgroundColor: 'white',
         flexDirection: 'row',
-        width: '80%',
-        padding: 15,
+        width: '100%',
+        marginBottom: 15,
         borderRadius: 10,
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingLeft: 15,
+        paddingVertical: 10
     },
     image: {
-        width: '30%',
-        height: 85
+        width: 80,
+        height: 80
     },
     textSet: {
         paddingVertical: 10,
         marginLeft: 20,
         justifyContent: 'center',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
+        width: '70%'
     },
     title: {
         fontWeight: 'bold',

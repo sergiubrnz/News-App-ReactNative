@@ -1,5 +1,5 @@
 class News {
-    constructor(id, title, author, imageUrl, content) {
+    constructor(title, content, id, imageUrl, author) {
         this.id = id;
         this.title = title;
         this.author = author;

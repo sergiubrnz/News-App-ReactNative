@@ -14,7 +14,10 @@ const SearchInput = props => {
                     placeholderTextColor='#BEBEBE'
                     onChangeText={(text) => {
                         if (text.length > 3) {
-                            props.onTextChange
+                            props.onChangeText(text)
+                        }
+                        else{
+                            props.onChangeText('Motorcycle')
                         }
                     }}
                 />

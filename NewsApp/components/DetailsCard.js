@@ -8,7 +8,7 @@ const DetailsCard = props => {
                 <Image style={styles.image} source={{ uri: 'https://cdn.shortpixel.ai/spai/w_1003+q_glossy+ret_img+to_webp/https://balkangreenenergynews.com/wp-content/uploads/2020/06/Greece-introduces-EUR-100-million-worth-subsidies-for-electric-vehicles.jpg' }} />
             </View>
             <View style={styles.textContainer}>
-                <Text numberOfLines={2} style={styles.title}>Before you buy an electric car: 21 Things You Should Know</Text>
+                <Text numberOfLines={2} style={styles.title}>{props.title}</Text>
                 <Text style={styles.author}>Arnold Gray</Text>
                 <View style={styles.line} />
                 <Text style={styles.content}>content dahdasgdya igdsiyad  sakhdius ahdi usahd iahdsi adhla hdlisud aushuh aldhah</Text>

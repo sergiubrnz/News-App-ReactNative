@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, ActivityIndicator, Button } from 'react-native';
+import { View, StyleSheet, Text, FlatList, ActivityIndicator, Button } from 'react-native';
 import SearchInput from '../components/SearchInput';
 import NewsItem from '../components/NewsItem';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,6 +7,7 @@ import * as newsActions from '../store/actions/news';
 
 const Overview = props => {
     const [isLoading, setIsLoading] = useState(false);
+    const [search, setSearch] = useState('Motorcycle');
 
     const news = useSelector(state => state.newsReducer.news);
     const dispatch = useDispatch();
@@ -14,41 +15,62 @@ const Overview = props => {
 
     useEffect(() => {
         setIsLoading(true);
-        dispatch(newsActions.fetchNews()).then(() => {
+        dispatch(newsActions.fetchNews(search)).then(() => {
             setIsLoading(false);
         });
-    }, [dispatch]);
+    }, [dispatch, search]);
 
-    if (isLoading) {
-        return (
-            <View style={styles.centered}>
-                <ActivityIndicator size="large" color={'black'} />
-            </View>
-        );
-    }
+    // if (!isLoading && news.length === 0) {
+    //     return (
+    //         <View style={styles.centered}>
+    //             <Text>No news found for your search. Try something else</Text>
+    //         </View>
+    //     );
+    // }
 
 
     return (
         <View style={styles.content}>
             <View style={styles.input}>
-                <SearchInput onChangeText={()=>{}} />
+                <SearchInput onChangeText={(text) => { setSearch(text) }} />
             </View>
-            <FlatList
-                style={{ padding: 15 }}
-                data={news}
-                keyExtractor={item => item.id}
-                renderItem={itemData => (
-                    <NewsItem
-                        image={itemData.item.imageUrl}
-                        title={itemData.item.title}
-                        title={itemData.item.author}
-                        onSelect={() => props.navigation.navigate(
-                            'Article Details'
-                        )}
-                    />
-                )}
-            />
-        </View>
+
+            {isLoading ? (<View style={styles.centered}>
+                <ActivityIndicator size="large" color={'#BEBEBE'} />
+                <Text style={styles.loadingText}>Loading articles...</Text>
+            </View>
+            ) : (
+                (!isLoading && news.length === 0) ? (
+                    <View style={styles.centered}>
+                        <Text>No news found for your search. Try something else</Text>
+                    </View>
+                ) : (
+                    <View>
+                        <FlatList
+                            style={{ padding: 15 }}
+                            data={news}
+                            keyExtractor={item => item.id}
+                            renderItem={itemData => (
+                                <NewsItem
+                                    image={itemData.item.imageUrl}
+                                    title={itemData.item.title}
+                                    author={itemData.item.author}
+                                    onSelect={() => props.navigation.navigate(
+                                        'Article Details', {
+                                        title: itemData.item.title
+                                    }
+                                    )}
+                                />
+                            )}
+                        />
+                    </View>)
+            )
+
+
+            }
+
+
+        </View >
     )
 };
 
@@ -68,6 +90,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%'
+    },
+    centered: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    loadingText: {
+        fontSize: 14,
+        color: '#BEBEBE'
     }
 });
 
