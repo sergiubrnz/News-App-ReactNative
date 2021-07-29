@@ -8,26 +8,27 @@ import * as newsActions from '../store/actions/news';
 const Overview = props => {
     const [isLoading, setIsLoading] = useState(false);
     const [search, setSearch] = useState('Motorcycle');
+    const [isRefreshing, setIsRefreshing] = useState(false);
 
     const news = useSelector(state => state.newsReducer.news);
     const dispatch = useDispatch();
 
+    const loadNews = useCallback(async () => {
+        setIsRefreshing(true);
+        try {
+            await dispatch(newsActions.fetchNews(search))
+        } catch (err) {
+            console.log(err);
+        }
+        setIsRefreshing(false);
+    }, [dispatch, setIsLoading, search])
 
     useEffect(() => {
         setIsLoading(true);
-        dispatch(newsActions.fetchNews(search)).then(() => {
+        loadNews().then(() => {
             setIsLoading(false);
         });
-    }, [dispatch, search]);
-
-    // if (!isLoading && news.length === 0) {
-    //     return (
-    //         <View style={styles.centered}>
-    //             <Text>No news found for your search. Try something else</Text>
-    //         </View>
-    //     );
-    // }
-
+    }, [dispatch, loadNews]);
 
     return (
         <View style={styles.content}>
@@ -40,36 +41,34 @@ const Overview = props => {
                 <Text style={styles.loadingText}>Loading articles...</Text>
             </View>
             ) : (
-                (!isLoading && news.length === 0) ? (
-                    <View style={styles.centered}>
-                        <Text>No news found for your search. Try something else</Text>
-                    </View>
-                ) : (
-                    <View>
-                        <FlatList
-                            style={{ padding: 15 }}
-                            data={news}
-                            keyExtractor={item => item.id}
-                            renderItem={itemData => (
-                                <NewsItem
-                                    image={itemData.item.imageUrl}
-                                    title={itemData.item.title}
-                                    author={itemData.item.author}
-                                    onSelect={() => props.navigation.navigate(
-                                        'Article Details', {
-                                        newsId: itemData.item.id
-                                    }
-                                    )}
-                                />
-                            )}
-                        />
-                    </View>)
-            )
-
-
+                <View>
+                    <FlatList
+                        onRefresh={loadNews}
+                        refreshing={isRefreshing}
+                        style={{ padding: 15 }}
+                        showsVerticalScrollIndicator={false}
+                        data={news}
+                        ListEmptyComponent={
+                            <View style={styles.centered}>
+                                <Text>No news found for your search. Try something else</Text>
+                            </View>
+                        }
+                        keyExtractor={item => item.id}
+                        renderItem={itemData => (
+                            <NewsItem
+                                image={itemData.item.imageUrl}
+                                title={itemData.item.title}
+                                author={itemData.item.author}
+                                onSelect={() => props.navigation.navigate(
+                                    'Article Details', {
+                                    newsId: itemData.item.id
+                                }
+                                )}
+                            />
+                        )}
+                    />
+                </View>)
             }
-
-
         </View >
     )
 };

@@ -16,7 +16,7 @@ export const fetchNews = (search) => {
                 news.push(
                     new News(
                         resData.articles[key].title,
-                        resData.articles[key].content, 
+                        resData.articles[key].description, 
                         key,                     
                         resData.articles[key].urlToImage,
                         resData.articles[key].author
