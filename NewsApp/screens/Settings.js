@@ -1,31 +1,35 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Button } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { switchColor } from '../store/actions/colors';
+import { View, StyleSheet, Text } from 'react-native';
 import { Blue, Green, Purple, Orange } from '../Colors';
+import ColorPicker from '../components/ColorPicker';
+import { useSelector } from 'react-redux';
 
 const Settings = props => {
-    const dispatch = useDispatch();
+    const theme = useSelector((state) => state.colorReducer.color);
 
     return (
         <View style={styles.content}>
             <Text style={styles.text}>Theme color:</Text>
             <View style={styles.components}>
-                <TouchableOpacity
-                    style={[styles.color, { backgroundColor: 'rgba(14,104,195,1)' }]}
-                    onPress={() => dispatch(switchColor(Blue))}
+                <ColorPicker
+                    color={Blue}
+                    backgroundColor='rgba(14,104,195,1)'
+                    style={[theme.mode === 'blue' ? styles.selected : {}]}
                 />
-                <TouchableOpacity
-                    style={[styles.color, { backgroundColor: 'rgba(86,143,86,1)' }]}
-                    onPress={() => dispatch(switchColor(Green))}
+                <ColorPicker
+                    color={Green}
+                    backgroundColor='rgba(86,143,86,1)'
+                    style={[theme.mode === 'green' ? styles.selected : {}]}
                 />
-                <TouchableOpacity
-                    style={[styles.color, { backgroundColor: 'rgba(229,103,23,1)' }]}
-                    onPress={() => dispatch(switchColor(Orange))}
+                <ColorPicker
+                    color={Orange}
+                    backgroundColor='rgba(229,103,23,1)'
+                    style={[theme.mode === 'orange' ? styles.selected : {}]}
                 />
-                <TouchableOpacity
-                    style={[styles.color, { backgroundColor: 'rgba(124,82,149,1)' }]}
-                    onPress={() => dispatch(switchColor(Purple))}
+                <ColorPicker
+                    color={Purple}
+                    backgroundColor='rgba(124,82,149,1)'
+                    style={[theme.mode === 'purple' ? styles.selected : {}]}
                 />
             </View>
         </View>
@@ -38,12 +42,6 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
     },
-    color: {
-        width: 60,
-        height: 60,
-        marginHorizontal: 15,
-        borderRadius: 10
-    },
     components: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -53,6 +51,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         margin: 15
+    },
+    selected: {
+        borderWidth: 2.5,
+        borderColor: 'black'
     }
 });
 
