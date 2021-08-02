@@ -1,6 +1,7 @@
 import News from "../../models/news";
 
 export const SET_NEWS = 'SET_NEWS';
+export const ADD_FAV = 'ADD_FAV';
 
 export const fetchNews = (search) => {
     return async dispatch => {
@@ -16,8 +17,8 @@ export const fetchNews = (search) => {
                 news.push(
                     new News(
                         resData.articles[key].title,
-                        resData.articles[key].description, 
-                        key,                     
+                        resData.articles[key].description,
+                        resData.articles[key].url,
                         resData.articles[key].urlToImage,
                         resData.articles[key].author
                     )
@@ -29,4 +30,8 @@ export const fetchNews = (search) => {
             console.log(err);
         }
     }
+}
+
+export const addFavs = (id) => {
+    return { type: ADD_FAV, newsId: id };
 }

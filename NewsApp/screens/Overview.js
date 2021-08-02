@@ -60,7 +60,7 @@ const Overview = props => {
                                 title={itemData.item.title}
                                 author={itemData.item.author}
                                 onSelect={() => props.navigation.navigate(
-                                    'Article Details', {
+                                    'ArticleDetails', {
                                     newsId: itemData.item.id
                                 }
                                 )}

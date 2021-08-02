@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Overview from '../screens/Overview';
@@ -8,6 +7,7 @@ import SavedNews from '../screens/SavedNews';
 import Settings from '../screens/Settings';
 
 const Stack = createStackNavigator();
+
 
 const OverviewStack = () => {
     return (
@@ -18,8 +18,9 @@ const OverviewStack = () => {
                 component={Overview}
             />
             <Stack.Screen
-                name="Article Details"
+                options={{ title: 'Article Details' }}
                 component={NewsDetails}
+                name="ArticleDetails"
             />
         </Stack.Navigator>
     )
@@ -31,12 +32,13 @@ const FavNewsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: true }} 
+                options={{ headerShown: true }}
                 name="Saved Articles"
                 component={SavedNews}
             />
             <Stack.Screen
-                name="Article Details"
+                options={{ title: 'Article Details' }}
+                name="ArticleDetails"
                 component={NewsDetails}
             />
         </Stack.Navigator>
@@ -49,7 +51,7 @@ const SettingsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: true, headerTitleAlign: 'center' }}
+                options={{ headerShown: true, headerTitleAlign: 'center', }}
                 name="Settings"
                 component={Settings}
             />
