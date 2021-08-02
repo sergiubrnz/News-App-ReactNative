@@ -5,9 +5,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addFavs } from '../store/actions/news';
 
 const NewsDetails = props => {
-    const availableNews = useSelector(state => state.newsReducer.news);
+    let availableNews;
     const theme = useSelector((state) => state.colorReducer.color);
     const newsId = props.route.params.newsId;
+    const screen = props.route.params.screen;
+
+    if (screen === 'savedNews') {
+        availableNews = useSelector(state => state.newsReducer.favs);
+    } else {
+        availableNews = useSelector(state => state.newsReducer.news);
+    }
 
     const currentNewsFav = useSelector(state =>
         state.newsReducer.favs.some(news => news.id === newsId)
@@ -18,16 +25,9 @@ const NewsDetails = props => {
     const dispatch = useDispatch();
 
     const FavsHandler = useCallback(() => {
-        dispatch(addFavs(newsId))
+        dispatch(addFavs(newsId));
+        props.navigation.goBack();
     }, [dispatch, newsId]);
-
-    // useEffect(() => {
-    //     props.navigation.setParams({ favorites: FavsHandler });
-    // }, [FavsHandler]);
-
-    // useEffect(() => {
-    //     props.navigation.setParams({ isFav: currentNewsFav });
-    // }, [currentNewsFav]);
 
     useEffect(() => {
         props.navigation.setOptions({
@@ -66,8 +66,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 50,
         paddingHorizontal: 25
-    },
-    details: {
     }
 });
 

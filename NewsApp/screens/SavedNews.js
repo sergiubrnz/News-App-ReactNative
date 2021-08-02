@@ -21,7 +21,8 @@ const SavedNews = props => {
                             author={itemData.item.author}
                             onSelect={() => props.navigation.navigate(
                                 'ArticleDetails', {
-                                newsId: itemData.item.id
+                                newsId: itemData.item.id,
+                                screen: 'savedNews'
                             }
                             )}
                         />
