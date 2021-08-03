@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import NewsItem from '../components/NewsItem';
 
 const SavedNews = props => {
     const fav = useSelector(state => state.newsReducer.favs);
-    console.log(fav);
     return (
         <View style={styles.content}>
             <View>
@@ -14,6 +13,11 @@ const SavedNews = props => {
                     showsVerticalScrollIndicator={false}
                     data={fav}
                     keyExtractor={item => item.id}
+                    ListEmptyComponent={
+                        <View style={styles.content}>
+                            <Text style={{fontSize:16}}>You have no saved news yet. Start saving some</Text>
+                        </View>
+                    }
                     renderItem={itemData => (
                         <NewsItem
                             image={itemData.item.imageUrl}

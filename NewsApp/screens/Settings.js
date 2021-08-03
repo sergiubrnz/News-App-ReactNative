@@ -34,18 +34,17 @@ const Settings = props => {
             </View>
         </View>
     )
-
 };
 
 
 const styles = StyleSheet.create({
     content: {
-        flex: 1,
+        flex: 1
     },
     components: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     text: {
         fontWeight: 'bold',

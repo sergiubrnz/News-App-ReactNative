@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10
     },
     image: {
-        width: 80,
+        width: '30%',
         height: 80
     },
     textSet: {

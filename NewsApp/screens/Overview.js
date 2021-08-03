@@ -50,7 +50,7 @@ const Overview = props => {
                         data={news}
                         ListEmptyComponent={
                             <View style={styles.centered}>
-                                <Text>No news found for your search. Try something else</Text>
+                                <Text style={{ fontSize: 16 }}>No news found for your search. Try something else</Text>
                             </View>
                         }
                         keyExtractor={item => item.id}

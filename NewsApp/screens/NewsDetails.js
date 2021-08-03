@@ -1,5 +1,5 @@
-import React, { useEffect, useCallback } from 'react';
-import { View, StyleSheet, TouchableOpacity, Image, Button } from 'react-native';
+import React, { useEffect, useCallback, useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import DetailsCard from '../components/DetailsCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavs } from '../store/actions/news';
@@ -7,6 +7,7 @@ import { addFavs } from '../store/actions/news';
 const NewsDetails = props => {
     let availableNews;
     const theme = useSelector((state) => state.colorReducer.color);
+    const [isPressed, setIsPressed] = useState(false);
     const newsId = props.route.params.newsId;
     const screen = props.route.params.screen;
 
@@ -25,9 +26,11 @@ const NewsDetails = props => {
     const dispatch = useDispatch();
 
     const FavsHandler = useCallback(() => {
-        dispatch(addFavs(newsId));
+        setIsPressed(true);
         props.navigation.goBack();
+        dispatch(addFavs(newsId));
     }, [dispatch, newsId]);
+
 
     useEffect(() => {
         props.navigation.setOptions({
@@ -49,14 +52,14 @@ const NewsDetails = props => {
     }, [currentNewsFav]);
 
 
-    return <View style={styles.content}>
+    return <View style={styles.content}>{isPressed ? (<View></View >) : (
         <DetailsCard
             style={styles.details}
             title={SelectedNews.title}
             author={SelectedNews.author}
             image={SelectedNews.imageUrl}
             content={SelectedNews.content}
-        />
+        />)}
     </View>
 };
 
