@@ -19,7 +19,7 @@ const newsReducer = (state = initialState, action) => {
             );
             if (existingNews >= 0) {
                 const updatedFavs = [...state.favs];
-                updatedFavs.splice(existingNews);
+                updatedFavs.splice(existingNews,1);
                 return { ...state, favs: updatedFavs };
             } else {
                 const news = state.news.find(news => news.id === action.newsId);
