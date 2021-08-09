@@ -14,17 +14,19 @@ const newsReducer = (state = initialState, action) => {
                 favs: state.favs
             }
         case ADD_FAV:
+            console.log(state.favs)
             const existingNews = state.favs.findIndex(
                 news => news.id === action.newsId
             );
+            let updatedFavs;
             if (existingNews >= 0) {
-                const updatedFavs = [...state.favs];
+                updatedFavs = [...state.favs];
                 updatedFavs.splice(existingNews,1);
-                return { ...state, favs: updatedFavs };
             } else {
                 const news = state.news.find(news => news.id === action.newsId);
-                return { ...state, favs: state.favs.concat(news) };
+                updatedFavs = [...state.favs.concat(news)]
             }
+            return { ...state, favs: updatedFavs };
         default:
             return state;
     }

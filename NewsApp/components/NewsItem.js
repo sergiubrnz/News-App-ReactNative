@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
     textSet: {
         paddingVertical: 10,
-        marginLeft: 20,
+        paddingHorizontal: 20,
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '70%'

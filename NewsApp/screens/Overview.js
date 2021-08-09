@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, StyleSheet, Text, FlatList, ActivityIndicator, Button } from 'react-native';
+import { View, StyleSheet, Text, FlatList, ActivityIndicator } from 'react-native';
 import SearchInput from '../components/SearchInput';
 import NewsItem from '../components/NewsItem';
 import { useSelector, useDispatch } from 'react-redux';

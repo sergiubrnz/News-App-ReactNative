@@ -10,12 +10,13 @@ const ColorPicker = props => {
 
     return (
         <View style={styles.general}>
-        <TouchableOpacity
-            style={[combineStyles, { backgroundColor: props.backgroundColor }]}
-            onPress={() => {
-                dispatch(switchColor(props.color))
-            }}
-        />
+            <TouchableOpacity
+                style={[combineStyles, { backgroundColor: props.backgroundColor }]}
+                activeOpacity={.85}
+                onPress={() => {
+                    dispatch(switchColor(props.color))
+                }}
+            />
         </View>
     )
 };
@@ -28,8 +29,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
         borderRadius: 10
     },
-    general:{
-        flex:1
+    general: {
+        flex: 1
     }
 });
 

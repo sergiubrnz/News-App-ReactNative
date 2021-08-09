@@ -15,7 +15,7 @@ const SavedNews = props => {
                     keyExtractor={item => item.id}
                     ListEmptyComponent={
                         <View style={styles.content}>
-                            <Text style={{fontSize:16}}>You have no saved news yet. Start saving some</Text>
+                            <Text style={{fontSize:16, textAlign:'center'}}>You have no saved news yet. Start saving some</Text>
                         </View>
                     }
                     renderItem={itemData => (
