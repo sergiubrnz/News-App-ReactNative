@@ -8,7 +8,7 @@ export const fetchNews = (search) => {
     return async dispatch => {
         try {
             const response = await fetch(
-                `https://newsapi.org/v2/everything?q=${search}&sortBy=popularity&apiKey=${ApiKey}`,
+                `https://newsapi.org/v2/everything?q=${search}&language=en&sortBy=publishedAt&apiKey=${ApiKey}`,
             )
 
             const resData = await response.json();
