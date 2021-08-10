@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, StyleSheet, Text, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import SearchInput from '../components/SearchInput';
 import NewsItem from '../components/NewsItem';
 import { useSelector, useDispatch } from 'react-redux';
 import * as newsActions from '../store/actions/news';
+import Styles from './styles/OverviewScreen';
 
 const Overview = props => {
     const [isLoading, setIsLoading] = useState(false);
@@ -31,14 +32,14 @@ const Overview = props => {
     }, [dispatch, loadNews]);
 
     return (
-        <View style={styles.content}>
-            <View style={styles.input}>
+        <View style={Styles.content}>
+            <View style={Styles.input}>
                 <SearchInput onChangeText={(text) => { setSearch(text) }} />
             </View>
 
-            {isLoading ? (<View style={styles.centered}>
+            {isLoading ? (<View style={Styles.centered}>
                 <ActivityIndicator size="large" color={'#BEBEBE'} />
-                <Text style={styles.loadingText}>Loading articles...</Text>
+                <Text style={Styles.loadingText}>Loading articles...</Text>
             </View>
             ) : (
                 <View>
@@ -49,7 +50,7 @@ const Overview = props => {
                         showsVerticalScrollIndicator={false}
                         data={news}
                         ListEmptyComponent={
-                            <View style={styles.centered}>
+                            <View style={Styles.centered}>
                                 <Text style={{ fontSize: 16 }}>No news found for your search. Try something else</Text>
                             </View>
                         }
@@ -73,33 +74,5 @@ const Overview = props => {
         </View >
     )
 };
-
-
-
-const styles = StyleSheet.create({
-    content: {
-        alignContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#d3d3d3',
-        flex: 1,
-        width: '100%'
-    },
-    input: {
-        height: '20%',
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%'
-    },
-    centered: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    loadingText: {
-        fontSize: 14,
-        color: '#BEBEBE'
-    }
-});
 
 export default Overview;

@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import DetailsCard from '../components/DetailsCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavs } from '../store/actions/news';
+import Styles from './styles/NewsDetailsScreen';
 
 const NewsDetails = props => {
     let availableNews;
@@ -52,9 +53,9 @@ const NewsDetails = props => {
     }, [currentNewsFav]);
 
 
-    return <View style={styles.content}>{isPressed ? (<View></View >) : (
+    return <View style={Styles.content}>{isPressed ? (<View></View >) : (
         <DetailsCard
-            style={styles.details}
+            style={Styles.details}
             title={SelectedNews.title}
             author={SelectedNews.author}
             image={SelectedNews.imageUrl}
@@ -62,14 +63,5 @@ const NewsDetails = props => {
         />)}
     </View>
 };
-
-
-const styles = StyleSheet.create({
-    content: {
-        flex: 1,
-        paddingTop: 50,
-        paddingHorizontal: 25
-    }
-});
 
 export default NewsDetails;

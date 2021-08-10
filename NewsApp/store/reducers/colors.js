@@ -1,4 +1,4 @@
-import { Blue } from "../../Colors";
+import { Blue } from "../../utils/Colors";
 import { SWITCH_COLOR } from "../actions/colors";
 
 const initialState = {

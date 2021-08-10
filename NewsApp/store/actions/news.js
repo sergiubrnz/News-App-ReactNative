@@ -1,4 +1,5 @@
 import News from "../../models/news";
+import ApiKey from '../../utils/ApiKey';
 
 export const SET_NEWS = 'SET_NEWS';
 export const ADD_FAV = 'ADD_FAV';
@@ -7,7 +8,7 @@ export const fetchNews = (search) => {
     return async dispatch => {
         try {
             const response = await fetch(
-                `https://newsapi.org/v2/everything?q=${search}&sortBy=popularity&apiKey=4270ac4b72504d49848ffd0be3ffe660`,
+                `https://newsapi.org/v2/everything?q=${search}&sortBy=popularity&apiKey=${ApiKey}`,
             )
 
             const resData = await response.json();
