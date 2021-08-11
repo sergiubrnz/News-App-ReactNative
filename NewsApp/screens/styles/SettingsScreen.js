@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
     content: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#d3d3d3'
     },
     components: {
         flexDirection: 'row',

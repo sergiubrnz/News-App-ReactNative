@@ -32,7 +32,7 @@ const FavNewsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: true }}
+                options={{ headerShown: true, headerTitleAlign: 'center', headerStyle:{backgroundColor: '#d3d3d3'} }}
                 name="Saved Articles"
                 component={SavedNews}
             />
@@ -51,7 +51,7 @@ const SettingsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: true, headerTitleAlign: 'center', }}
+                options={{ headerShown: true, headerTitleAlign: 'center', headerStyle:{backgroundColor: '#d3d3d3'} }}
                 name="Settings"
                 component={Settings}
             />
