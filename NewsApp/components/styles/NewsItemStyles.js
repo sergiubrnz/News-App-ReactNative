@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from '../../utils/Colors';
 
+
 const Styles = StyleSheet.create({
     news: {
         backgroundColor: 'white',
@@ -13,8 +14,8 @@ const Styles = StyleSheet.create({
         paddingVertical: 10
     },
     image: {
-        width: '30%',
-        height: 80
+        width: '25%',
+        aspectRatio:1
     },
     textSet: {
         paddingVertical: 10,
