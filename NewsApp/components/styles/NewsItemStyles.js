@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../utils/Colors';
 
 const Styles = StyleSheet.create({
     news: {
@@ -26,11 +27,11 @@ const Styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom: 5,
-        color: '#222222'
+        color: Colors.title
     },
     author: {
         fontSize: 15,
-        color: '#777777'
+        color: Colors.author
     }
 });
 

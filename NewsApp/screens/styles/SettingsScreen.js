@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../utils/Colors';
 
 const Styles = StyleSheet.create({
     content: {
         flex: 1,
-        backgroundColor: '#d3d3d3'
+        backgroundColor: Colors.backgroundColor
     },
     components: {
         flexDirection: 'row',

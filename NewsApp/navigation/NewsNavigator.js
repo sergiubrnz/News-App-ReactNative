@@ -5,6 +5,7 @@ import Overview from '../screens/Overview';
 import NewsDetails from '../screens/NewsDetails';
 import SavedNews from '../screens/SavedNews';
 import Settings from '../screens/Settings';
+import { Colors } from '../utils/Colors';
 
 const Stack = createStackNavigator();
 
@@ -32,7 +33,7 @@ const FavNewsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: true, headerTitleAlign: 'center', headerStyle:{backgroundColor: '#d3d3d3'} }}
+                options={{ headerShown: true, headerTitleAlign: 'center', headerStyle:{backgroundColor: Colors.backgroundColor} }}
                 name="Saved Articles"
                 component={SavedNews}
             />
@@ -51,7 +52,7 @@ const SettingsStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={{ headerShown: true, headerTitleAlign: 'center', headerStyle:{backgroundColor: '#d3d3d3'} }}
+                options={{ headerShown: true, headerTitleAlign: 'center', headerStyle:{backgroundColor: Colors.backgroundColor} }}
                 name="Settings"
                 component={Settings}
             />

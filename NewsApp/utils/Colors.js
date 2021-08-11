@@ -21,3 +21,11 @@ export const Purple = {
     COLOR: 'rgba(109,63,183,0.25)',
     SECONDARY_COLOR: 'rgba(109,63,183,1)'
 }
+
+export const Colors = {
+    author: '#777777',
+    title: '#222222',
+    inputText: '#363636',
+    searchField: '#BEBEBE',
+    backgroundColor: '#f8f8f8'
+}

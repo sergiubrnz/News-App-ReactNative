@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../utils/Colors';
 
 const Styles = StyleSheet.create({
     screen: {
@@ -9,15 +10,15 @@ const Styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        color: '#222222',
+        color: Colors.title,
         fontSize: 18
     },
     author: {
-        color: '#777777',
+        color: Colors.author,
         fontSize: 16
     },
     content: {
-        color: '#222222',
+        color: Colors.title,
         fontSize: 14,
         paddingTop: 10
     },
@@ -43,7 +44,7 @@ const Styles = StyleSheet.create({
     },
     line: {
         borderBottomWidth: 2,
-        borderBottomColor: '#DEDEDE',
+        borderBottomColor: Colors.searchField,
         paddingVertical: 5,
         width: '30%',
         alignSelf: 'center'

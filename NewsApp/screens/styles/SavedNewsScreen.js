@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../utils/Colors';
 
 const Styles = StyleSheet.create({
     content: {
         alignContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#d3d3d3',
+        backgroundColor: Colors.backgroundColor,
         flex: 1,
         width: '100%'
     }

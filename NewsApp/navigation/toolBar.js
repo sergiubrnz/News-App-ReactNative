@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
 import { OverviewStack, FavNewsStack, SettingsStack } from './NewsNavigator';
+import { Colors } from '../utils/Colors';
 const Bar = createBottomTabNavigator();
 
 const ToolBar = () => {
@@ -27,7 +28,7 @@ const ToolBar = () => {
                     component={OverviewStack}
                     options={{
                         tabBarIcon: ({ focused }) => (
-                            <View style={[styles.imageview, { backgroundColor: focused ? theme.COLOR : 'white' }]} >
+                            <View style={[styles.imageview, { backgroundColor: focused ? theme.COLOR : Colors.backgroundColor }]} >
                                 <Image
                                     source={require('../images/home.png')}
                                     resizeMode='contain'
@@ -42,7 +43,7 @@ const ToolBar = () => {
                     component={FavNewsStack}
                     options={{
                         tabBarIcon: ({ focused }) => (
-                            <View style={[styles.imageview, { backgroundColor: focused ? theme.COLOR : 'white' }]} >
+                            <View style={[styles.imageview, { backgroundColor: focused ? theme.COLOR : Colors.backgroundColor }]} >
                                 <Image
                                     source={require('../images/group.png')}
                                     resizeMode='contain'
@@ -57,7 +58,7 @@ const ToolBar = () => {
                     component={SettingsStack}
                     options={{
                         tabBarIcon: ({ focused }) => (
-                            <View style={[styles.imageview, { backgroundColor: focused ? theme.COLOR : 'white' }]} >
+                            <View style={[styles.imageview, { backgroundColor: focused ? theme.COLOR : Colors.backgroundColor }]} >
                                 <Image
                                     source={require('../images/settings.png')}
                                     resizeMode='contain'
